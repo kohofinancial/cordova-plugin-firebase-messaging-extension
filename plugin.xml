@@ -1,0 +1,49 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+           id="cordova-plugin-firebase-messaging-extension"
+      version="1.0.0">
+
+    <name>Cordova Plugin Firebase Messaging Extension</name>
+    <description>Cordova plugin to extend Firebase messaging to a project with UrbanAirship and Intercom</description>
+    <license>MIT</license>
+    <keywords>cordova</keywords>
+    <repo>https://github.com/kohofinancial/cordova-plugin-firebase-messaging-extension</repo>
+    <issue>https://github.com/kohofinancial/cordova-plugin-firebase-messaging-extension/issues</issue>
+
+    <engines>
+        <engine name="cordova" version=">=9.0.0"/>
+        <engine name="cordova-android" version=">=8.0.0"/>
+    </engines>
+
+    <platform name="android">
+        <preference name="FIREBASE_CORE_VERSION" default="16.0.8"/>
+        <preference name="FIREBASE_MESSAGING_VERSION" default="17.+"/>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FirebaseMessagingExtension">
+                <param name="android-package" value="ca.koho.cordova.plugin.firebase.messaging.FirebaseMessagingExtensionPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="ca.koho.cordova.plugin.firebase.messaging.FirebaseMessagingExtensionService">
+                <intent-filter>
+                    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                </intent-filter>
+            </service>
+        </config-file>
+
+        <dependency id="cordova-support-google-services" version="^1.3.0"/>
+        <dependency id="cordova-plugin-intercom" version="^7.1.0"/>
+        <dependency id="urbanairship-cordova" version="^7.6.0"/>
+
+        <framework src="com.google.firebase:firebase-core:$FIREBASE_CORE_VERSION" />
+        <framework src="com.google.firebase:firebase-messaging:$FIREBASE_MESSAGING_VERSION" />
+
+        <source-file src="src/android/FirebaseMessagingExtensionService.java"
+            target-dir="src/ca/koho/cordova/plugin/firebase/messaging" />
+        <source-file src="src/android/FirebaseMessagingExtensionPlugin.java"
+            target-dir="src/ca/koho/cordova/plugin/firebase/messaging" />
+    </platform>
+</plugin>
