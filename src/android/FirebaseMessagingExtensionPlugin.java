@@ -4,11 +4,11 @@ import android.util.Log;
 
 import org.apache.cordova.CordovaPlugin;
 
-public class FirebaseMessagingPlugin extends CordovaPlugin {
-    private static final String TAG = "FirebaseMessagingPlugin";
+public class FirebaseMessagingExtensionPlugin extends CordovaPlugin {
+    private static final String TAG = "FirebaseMessagingExtensionPlugin";
     @Override
     protected void pluginInitialize() {
-        FirebaseMessagingPlugin.instance = this;
+        FirebaseMessagingExtensionPlugin.instance = this;
         Log.d(TAG, "pluginInitialize");
     }
 }
