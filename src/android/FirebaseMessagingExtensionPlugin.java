@@ -8,7 +8,6 @@ public class FirebaseMessagingExtensionPlugin extends CordovaPlugin {
     private static final String TAG = "FirebaseMessagingExtensionPlugin";
     @Override
     protected void pluginInitialize() {
-        FirebaseMessagingExtensionPlugin.instance = this;
         Log.d(TAG, "pluginInitialize");
     }
 }
