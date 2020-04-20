@@ -1,7 +1,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-firebase-messaging-extension"
-      version="1.0.0">
+      version="2.0.0">
 
     <name>Cordova Plugin Firebase Messaging Extension</name>
     <description>Cordova plugin to extend Firebase messaging to a project with UrbanAirship and Intercom</description>
